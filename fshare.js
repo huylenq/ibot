@@ -19,8 +19,8 @@ var getLink = (file, session) => {
                 return request.post('https://www.fshare.vn/login', {
                     form: {
                         fs_csrf: csrf,
-                        'LoginForm[email]': 'ipop.share@gmail.com',
-                        'LoginForm[password]': '2nam/lan',
+                        'LoginForm[email]': process.env.FSHARE_EMAIL,
+                        'LoginForm[password]': process.env.FSHARE_PASSWORD,
                         'LoginForm[rememberMe]': 1
                     }
                 }, (e, r, b) => {
