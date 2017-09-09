@@ -6,15 +6,18 @@ var _0x77e0=["\x55","\x57","\x4A","\x48","\x44","\x47","\x4D","\x41","\x59","\x4
 var getLink = $ => (i, a) => {
     var song = $(a).attr('href');
     console.log('Scraping [%s]...', song);
-    return rp(song).then(html => {
-        var found = html.match(/mp3: (decode_download_url\([^\)]+\))/);
-        if (found) {
-            var link = eval(found[1]).replace('/128/', '/320/');
-            console.log('>>> %s', link);
-            return link;
-        }
-        return null;
-    });
+    return rp(song)
+        .then(html => {
+            console.log(html);
+            var found = html.match(/mp3: (decode_download_url\([^\)]+\))/);
+            if (found) {
+                var link = eval(found[1]).replace('/128/', '/320/');
+                console.log('>>> %s', link);
+                return link;
+            }
+            return null;
+        })
+        .catch(err => console.error(err));
 };
 
 module.exports = function(session) {
