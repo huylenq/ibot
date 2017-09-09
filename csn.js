@@ -8,9 +8,9 @@ var getLink = $ => (i, a) => {
     console.log('Scraping [%s]...', song);
     return rp(song)
         .then(html => {
-            console.log('1st match : %s', html.match(/mp3: (decode_download_url\([^\)]+\))/));
-            console.log('2nd match : %s', html.match(/mp3: (decode_download_url\([^\)]+\))/g));
-            console.log('3rd match : %s', html.match(/decode_download_url/g));
+            console.log('1st match : %s', html.match(/mp3\: (decode_download_url\([^\)]+\))/));
+            console.log('2nd match : %s', html.match(/mp3\: (decode_download_url\([^\)]+\))/g));
+            console.log('3rd match : %s', html.match(/decode_download_url\([^\)]+\)/g));
             var found = html.match(/mp3: (decode_download_url\([^\)]+\))/);
             if (found) {
                 var link = eval(found[1]).replace('/128/', '/320/');
