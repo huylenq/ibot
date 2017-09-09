@@ -48,6 +48,6 @@ var extract = (resp, session) => {
 };
 
 module.exports = exports = function(session) {
-    var url = session.message.text.replace(/@?iBot/gi, '').trim();
-    getLink(url, session);
+    var url = cheerio.load(session.message.text.replace(/@?iBot/gi, '').trim());
+    getLink(url.text(), session);
 };
