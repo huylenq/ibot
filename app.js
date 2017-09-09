@@ -50,6 +50,9 @@ bot.dialog('/', function(session) {
     } else if (session.message.text.toLowerCase().contains('http://chiasenhac.vn')) {
         session.send('Anh ơi, vô rồi đó, anh chờ xíu nha, em ra liền...');
         require('./csn')(session);
+    } else if (session.message.text.toLowerCase().match(/https?:\/\/(www\.)?fshare\.vn\/file\//)) {
+        session.send('Anh ngồi đây xíu nhe, em đi lấy liền...');
+        require('./fshare')(session);
     } else if (session.message.text.toLowerCase().contains('làm sao')) {
         session.send(
             `Anh ơiiiiii, anh muốn "ấy" thì phải làm vầy nè:
