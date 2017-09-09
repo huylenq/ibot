@@ -44,7 +44,7 @@ var extract = (resp, session) => {
         session.send(`
 Lấy đi nè đồ quỷ:
 <pre>${resp.headers['location']}</pre>
-`;
+`);
     } else {
         session.send('Sao hông login được vậy nè chời');
     }
