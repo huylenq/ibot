@@ -45,7 +45,7 @@ bot.dialog('/', function(session) {
     if (session.message.text.toLowerCase().contains('hello')) {
         session.send(`Hey, How are you?`);
     } else if (session.message.text.toLowerCase().contains('http://chiasenhac.vn')) {
-        session.send('Anh ơi, vô rồi đó, anh chờ xíu nha, em sắp ra rồi...');
+        session.send('Anh ơi, vô rồi đó, anh chờ xíu nha, em ra liền...');
         require('./csn')(session);
     } else if (session.message.text.toLowerCase().contains('làm sao')) {
         session.send(
