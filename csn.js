@@ -21,7 +21,7 @@ var getLink = $ => (i, a) => {
 };
 
 module.exports = function(session) {
-    var url = cheerio.load(session.message.text);
+    var url = cheerio.load(session.message.text.replace(/@?iBot/gi, '').trim());
     rp({ uri: url.text(), transform: html => cheerio.load(html) })
     .then($ => {
         Promise.all($('.playlist_prv .tbtable tr a.musictitle').map(getLink($)).get())
