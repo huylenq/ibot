@@ -14,6 +14,9 @@ var connector = new builder.ChatConnector({
     appPassword: "ETsYFQQL28L3sUKoBXqWYPe"
 });
 var bot = new builder.UniversalBot(connector);
+server.get(/\/csn\/?.*/, restify.serveStatic({
+    directory: __dirname
+}));
 server.post('/api/messages', connector.listen());
 //Bot on
 bot.on('contactRelationUpdate', function(message) {

@@ -42,8 +42,8 @@ module.exports = function(session) {
                 fs.writeFile(newDir + '/playlist_m4a.m3u', m4a, err => console.error(err));
                 session.send(`
 Của anh nè:
-1. <a href="https://my-ibot.herokuapp.com/${newDir.replace(process.cwd(), '')}/playlist_320k.m3u">playlist_320k.m3u</a>
-2. <a href="https://my-ibot.herokuapp.com/${newDir.replace(process.cwd(), '')}/playlist_m4a.m3u">playlist_m4a.m3u</a>
+1. <a href="https://my-ibot.herokuapp.com${newDir.replace(process.cwd(), '')}/playlist_320k.m3u">playlist_320k.m3u</a>
+2. <a href="https://my-ibot.herokuapp.com${newDir.replace(process.cwd(), '')}/playlist_m4a.m3u">playlist_m4a.m3u</a>
 `);
             })
             .catch(err => console.error(err));
