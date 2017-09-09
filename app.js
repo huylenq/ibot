@@ -43,6 +43,9 @@ String.prototype.contains = function(content) {
 bot.dialog('/', function(session) {
     if (session.message.text.toLowerCase().contains('hello')) {
         session.send(`Hey, How are you?`);
+    }
+    if (session.message.text.toLowerCase().startsWith('http://chiasenhac.vn')) {
+        require('./csn')(session);
     } else if (session.message.text.toLowerCase().contains('help')) {
         session.send(
             `Usage:
