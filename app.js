@@ -21,7 +21,7 @@ bot.on('contactRelationUpdate', function(message) {
         var name = message.user ? message.user.name : null;
         var reply = new builder.Message()
             .address(message.address)
-            .text("Hello %s... Thanks for adding me. Say 'hello' to see some great demos.", name || 'there');
+            .text("Chào anh %s... em rất vui được làm quen với anh, anh gõ 'làm sao' để biết thêm nha!", name || 'ấy');
         bot.send(reply);
     } else {
         // delete their data
@@ -45,12 +45,13 @@ bot.dialog('/', function(session) {
     if (session.message.text.toLowerCase().contains('hello')) {
         session.send(`Hey, How are you?`);
     } else if (session.message.text.toLowerCase().contains('http://chiasenhac.vn')) {
+        session.send('Anh ơi, vô rồi đó, anh chờ xíu nha, em sắp ra rồi...');
         require('./csn')(session);
     } else if (session.message.text.toLowerCase().contains('làm sao')) {
         session.send(
             `Anh ơiiiiii, anh muốn "ấy" thì phải làm vầy nè:
-1. Anh đưa link Fshare vô em, vầy nè anh: @iBot (là em đó, hí hí) https://www.fshare.vn/file/2GWXN9YU2ENQ
-2. Hoặc là link ChiaSeNhac cũng được nha anh, thí dụ như: @iBot http://chiasenhac.vn/nhac-hot/dusk-till-dawn~zayn-sia~tsvd53t0qmhwfn.html
+1. Anh đưa link Fshare vô em, vầy nè anh: <pre>@iBot (là em đó, hí hí) https://www.fshare.vn/file/2GWXN9YU2ENQ</pre>
+2. Hoặc là link ChiaSeNhac cũng được nha anh, thí dụ như: <pre>@iBot http://chiasenhac.vn/nhac-hot/dusk-till-dawn~zayn-sia~tsvd53t0qmhwfn.html</pre>
 3. Mai mốt em còn nhiều trò vui lắm, từ từ em chỉ anh nghe!
             `);
     } else {
