@@ -10,7 +10,7 @@ var getLink = $ => (i, a) => {
         .then(html => {
             var found = html.match(/decode_download_url\([^\)]+\)/g);
             if (found) {
-                var link = eval(found[0]).replace('/128/', '/320/');
+                var link = eval(found[0]).replace('/(32|128)/', '/320/');
                 console.log('>>> %s', link);
                 return link;
             }
@@ -25,7 +25,7 @@ module.exports = function(session) {
     rp({ uri: url.text(), transform: html => cheerio.load(html) })
     .then($ => {
         Promise.all($('.playlist_prv .tbtable tr a.musictitle').map(getLink($)).get())
-            .then(result => session.send(result.filter(u => u != undefined).join("\n")))
+            .then(result => session.send('```' + result.filter(u => u != undefined).join("\n") + '```'))
             .catch(err => console.error(err));
     })
     .catch(err => console.error(err));
