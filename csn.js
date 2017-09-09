@@ -18,7 +18,8 @@ var getLink = $ => (i, a) => {
 };
 
 module.exports = function(session) {
-    rp({ uri: session.message.text, transform: html => cheerio.load(html) })
+    var url = cheerio.load(session.message.text);
+    rp({ uri: url.text(), transform: html => cheerio.load(html) })
     .then($ => {
         Promise.all($('.playlist_prv .tbtable tr a.musictitle').map(getLink($)).get())
             .then(result => session.send(result.filter(u => u != undefined).join("\n")))
