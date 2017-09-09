@@ -16,6 +16,7 @@
   "author": "Robert Nguyen",
   "license": "MIT",
   "dependencies": {
-    "botbuilder": "^3.9.1"
+    "botbuilder": "^3.9.1",
+    "restify": "^5.2.0"
   }
 }
