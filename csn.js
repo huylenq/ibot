@@ -36,9 +36,9 @@ module.exports = function(session) {
         Promise.all($('.playlist_prv .tbtable tr a.musictitle').map(getLink($)).get())
             .then(result => {
                 result = result.filter(u => u != undefined);
-                var k320 = result.map(i => u.replace(/\/(32|128)\//, '/320/').replace('.m4a', '.mp3')).join("\n");
+                var k320 = result.map(u => u.replace(/\/(32|128)\//, '/320/').replace('.m4a', '.mp3')).join("\n");
                 fs.writeFile(newDir + '/playlist_320k.m3u', k320, err => console.error(err));
-                var m4a = result.map(i => u.replace(/\/(32|128)\//, '/m4a/').replace('.mp3', '.m4a')).join("\n");
+                var m4a = result.map(u => u.replace(/\/(32|128)\//, '/m4a/').replace('.mp3', '.m4a')).join("\n");
                 fs.writeFile(newDir + '/playlist_m4a.m3u', m4a, err => console.error(err));
                 session.send(`
 Của anh nè:
