@@ -46,14 +46,14 @@ bot.dialog('/', function(session) {
         session.send(`Hey, How are you?`);
     } else if (session.message.text.toLowerCase().contains('http://chiasenhac.vn')) {
         require('./csn')(session);
-    } else if (session.message.text.toLowerCase().contains('help')) {
+    } else if (session.message.text.toLowerCase().contains('làm sao')) {
         session.send(
-            `Usage:
-1. [FShare link]. Example: @iBot https://www.fshare.vn/file/2GWXN9YU2ENQ
-2. [Chiasenhac playlist link]. Example: @iBot http://chiasenhac.vn/nhac-hot/dusk-till-dawn~zayn-sia~tsvd53t0qmhwfn.html
-3. New stuff coming in pretty soon
+            `Anh ơiiiiii, anh muốn "ấy" thì phải làm vầy nè:
+1. Anh đưa link Fshare vô em, vầy nè anh: @iBot (là em đó, hí hí) https://www.fshare.vn/file/2GWXN9YU2ENQ
+2. Hoặc là link ChiaSeNhac cũng được nha anh, thí dụ như: @iBot http://chiasenhac.vn/nhac-hot/dusk-till-dawn~zayn-sia~tsvd53t0qmhwfn.html
+3. Mai mốt em còn nhiều trò vui lắm, từ từ em chỉ anh nghe!
             `);
     } else {
-        session.send(`Sorry I don't understand you...`);
+        session.send(`Anh à, nói gì mà em hổng hiểu, anh nói lại i.`);
     }
 });
