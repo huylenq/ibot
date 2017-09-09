@@ -10,7 +10,7 @@ var getLink = $ => (i, a) => {
         .then(html => {
             var found = html.match(/decode_download_url\([^\)]+\)/g);
             if (found) {
-                var link = eval(found[0]).replace('/(32|128)/', '/320/');
+                var link = eval(found[0]).replace(/\/(32|128)\//, '/320/').replace('.m4a', '.mp3');
                 console.log('>>> %s', link);
                 return link;
             }
