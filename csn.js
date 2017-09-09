@@ -8,13 +8,13 @@ var getLink = $ => (i, a) => {
     console.log('Scraping [%s]...', song);
     return rp(song)
         .then(html => {
-            console.log(html);
             var found = html.match(/mp3: (decode_download_url\([^\)]+\))/);
             if (found) {
                 var link = eval(found[1]).replace('/128/', '/320/');
                 console.log('>>> %s', link);
                 return link;
             }
+            console.log('Unexpected HTML: %s', found);
             return null;
         })
         .catch(err => console.error(err));
