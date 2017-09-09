@@ -41,10 +41,7 @@ var getLink = (file, session) => {
 var extract = (resp, session) => {
     if (resp.statusCode == 302) {
         console.log(resp.headers['location']);
-        session.send(`
-Lấy đi nè đồ quỷ:
-<pre>${resp.headers['location']}</pre>
-`);
+        session.send('Lấy đi nè đồ quỷ: <br /><p><blockquote><pre>' + resp.headers['location'] + '</pre></blockquote></p>');
     } else {
         session.send('Sao hông login được vậy nè chời');
     }
