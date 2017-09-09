@@ -24,10 +24,10 @@ var getLink = (file, session) => {
                         'LoginForm[rememberMe]': 1
                     }
                 }, (e, r, b) => {
-                    if (e) throw e;
+                    if (e) session.send(e.toString());
                     session.send('Login xong rùi, giờ lấy file nè...');
                     request.get(file, { followRedirect: false }, (e, r, b) => {
-                        if (e) throw e;
+                        if (e) session.send(e.toString());
                         return extract(r, session);
                     });
                 });
@@ -43,7 +43,7 @@ var extract = (resp, session) => {
         console.log(resp.headers['location']);
         session.send('Lấy đi nè đồ quỷ: <pre>' + resp.headers['location'] + '</pre>');
     } else {
-        throw new Error('Sao hông login được vậy nè chời');
+        session.send('Sao hông login được vậy nè chời');
     }
 };
 
