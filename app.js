@@ -77,5 +77,5 @@ const QUOTE_LIST = [
 ];
 
 function randomQuote() {
-    return QUOTE_LIST[Math.round(Math.random() * QUOTE_LIST.length) - 1];
+  return QUOTE_LIST[Math.round(Math.random() * (QUOTE_LIST.length - 1))];
 }
