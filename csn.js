@@ -30,7 +30,7 @@ var getLink = $ => (i, a) => {
 module.exports = function(session) {
     var newDir = path.join(dir, Date.now().toString());
     fs.mkdirSync(newDir);
-    var url = cheerio.load(session.message.text.replace(/@?iBot/gi, '').trim());
+    var url = cheerio.load(session.message.text.replace(/@?vếu/gi, '').trim());
     rp({ uri: url.text(), transform: html => cheerio.load(html) })
     .then($ => {
         Promise.all($('.playlist_prv .tbtable tr a.musictitle').map(getLink($)).get())
