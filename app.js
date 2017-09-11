@@ -61,6 +61,21 @@ bot.dialog('/', function(session) {
 3. Mai mốt em còn nhiều trò vui lắm, từ từ em chỉ anh nghe!
             `);
     } else {
-        session.send(`Anh à, nói gì mà em hổng hiểu, anh nói lại i.`);
+        session.send(randomQuote());
     }
 });
+
+
+const QUOTE_LIST = [
+    'Anh à, nói gì mà em hổng hiểu, anh nói lại i.',
+    'Anh nói bậy quá nha!',
+    'Kì quá đi!',
+    'Nói gì vậy má!',
+    'Coi chừng vợ đánh nha anh!',
+    'Anh hỏi anh Jim kìa!',
+    'Anh Huy đẹp trai ghê!'
+];
+
+function randomQuote() {
+    return QUOTE_LIST[Math.round(Math.random() * QUOTE_LIST.length) - 1];
+}
